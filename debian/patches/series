@@ -1,0 +1,3 @@
+no-soname.diff
+Hurd_PATH_MAX.patch
+#wait_more_for_server.patch

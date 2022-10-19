@@ -1,0 +1,22 @@
+Source: socket-wrapper
+Homepage: http://cwrap.org/socket_wrapper.html
+Section: devel
+Priority: optional
+Maintainer: Laszlo Boszormenyi (GCS) <gcs@debian.org>
+Build-Depends:
+ debhelper-compat (= 12),
+ dh-buildinfo,
+ cmake (>= 2.8.8-3~),
+ libcmocka-dev (>= 1.0.1),
+ asciidoc, libxml2-utils, xsltproc, docbook-xml, docbook-xsl
+XS-Testsuite: autopkgtest
+Standards-Version: 4.5.0
+
+Package: libsocket-wrapper
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: socket wrapper library
+ socket_wrapper is a preload library that makes possible to run several
+ instances of the full software stack on the same machine and perform locally
+ functional testing of complex network configurations. It passes all socket
+ communication over unix domain sockets.

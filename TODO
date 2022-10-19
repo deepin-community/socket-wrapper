@@ -1,0 +1,31 @@
+TODO
+=====
+
+This is the TODO list of this project. It should give you some hints of things
+which need to be implemented. If you can spend some time on this project, then
+look at the list below.
+
+
+Library:
+---------
+
+Goals:
+* The proposed way ==> - fd-passing for tcp sockets (for free)
+  Approach:
+  - tdb "in small". So a "db file".
+    - for each socket an entry in the db file
+      (file, mmap, robust mutex. e.g. one file per local ip addr)
+    - socket_info : structure in db. protected by pthread robust mutexes
+    - socket_info_fd : --> pointer into mmap area of db
+    - free-list
+  - fd-passing: pass index in array
+    - the last element we pass is not a fd but the index number in the
+      mmaped file
+* Use realpath() in socket_wrapper_dir().
+
+Testing:
+---------
+* Add a test to make sure detect stale file descriptors.
+* Add a test for sento() to broadcast 255.255.255.255.
+* Add a test to check that read/readv/send/ only work on connected sockets.
+* Add unit tests for conversion functions like convert_in_un_remote().

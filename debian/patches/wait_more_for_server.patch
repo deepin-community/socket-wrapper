@@ -1,0 +1,26 @@
+Description: <short summary of the patch>
+ .
+Author: Laszlo Boszormenyi (GCS) <gcs@debian.org>
+Forwarded: no
+Bug-Debian: https://bugs.debian.org/787572
+Last-Update: 2016-01-06
+
+---
+
+--- socket-wrapper-1.1.3.orig/tests/torture.c
++++ socket-wrapper-1.1.3/tests/torture.c
+@@ -183,12 +183,12 @@ static void torture_setup_echo_srv_ip(vo
+ 		struct stat sb;
+ 
+ 		count++;
+-		if (count > 100) {
++		if (count > 1000) {
+ 			break;
+ 		}
+ 
+ 		rc = stat(s->srv_pidfile, &sb);
+-		usleep(200);
++		usleep(500);
+ 	} while (rc != 0);
+ 	assert_int_equal(rc, 0);
+ 

@@ -1,0 +1,13 @@
+#!/bin/sh
+set -e -u
+cp -a . "$AUTOPKGTEST_TMP"
+cd "$AUTOPKGTEST_TMP"
+rm -rf obj debian
+mkdir obj
+cd obj
+cmake .. -DUNIT_TESTING=1
+make -C tests/
+cd tests
+export LD_PRELOAD=libsocket_wrapper.so
+ls ./test_* \
+| xargs -t -d '\n' -n1 env

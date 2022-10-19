@@ -1,0 +1,150 @@
+socket-wrapper (1.2.5-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Laszlo Boszormenyi (GCS) <gcs@debian.org>  Wed, 01 Jul 2020 19:44:18 +0200
+
+socket-wrapper (1.2.4-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Switch to short debhelper rules format.
+  * Update debhelper level to 12 .
+  * Update Standards-Version to 4.5.0 .
+
+ -- Laszlo Boszormenyi (GCS) <gcs@debian.org>  Thu, 16 Apr 2020 19:22:01 +0000
+
+socket-wrapper (1.2.3-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Update Standards-Version to 4.4.0 .
+
+ -- Laszlo Boszormenyi (GCS) <gcs@debian.org>  Sat, 17 Aug 2019 14:32:21 +0000
+
+socket-wrapper (1.2.1-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Update Standards-Version to 4.2.1 .
+
+ -- Laszlo Boszormenyi (GCS) <gcs@debian.org>  Sat, 24 Nov 2018 19:23:39 +0000
+
+socket-wrapper (1.1.9+ds-1) unstable; urgency=medium
+
+  * New upstream release (closes: #894796).
+  * Update Standards-Version to 4.1.3 .
+  * Update debhelper level to 11 .
+
+ -- Laszlo Boszormenyi (GCS) <gcs@debian.org>  Wed, 04 Apr 2018 16:52:41 +0000
+
+socket-wrapper (1.1.8+ds-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Disable wait_more_for_server patch for now, upstream increased startup
+    checking time.
+  * Update Standards-Version to 4.1.1 and debhelper level to 10 .
+
+ -- Laszlo Boszormenyi (GCS) <gcs@debian.org>  Wed, 08 Nov 2017 17:43:36 +0000
+
+socket-wrapper (1.1.7-2) unstable; urgency=medium
+
+  * Tighten CMocka build dependency (closes: #858885).
+
+ -- Laszlo Boszormenyi (GCS) <gcs@debian.org>  Tue, 28 Mar 2017 19:18:47 +0000
+
+socket-wrapper (1.1.7-1) unstable; urgency=low
+
+  * New upstream release.
+  * Update Standards-Version to 3.9.8 .
+
+ -- Laszlo Boszormenyi (GCS) <gcs@debian.org>  Tue, 24 May 2016 20:26:14 +0000
+
+socket-wrapper (1.1.6-1) unstable; urgency=low
+
+  * New upstream release.
+  * Update Standards-Version to 3.9.7 .
+
+ -- Laszlo Boszormenyi (GCS) <gcs@debian.org>  Sat, 26 Mar 2016 18:39:01 +0000
+
+socket-wrapper (1.1.5-1) unstable; urgency=low
+
+  * New upstream release.
+  * Remove reproducible-manpage.diff as applied upstream.
+  * Update patches.
+
+ -- Laszlo Boszormenyi (GCS) <gcs@debian.org>  Wed, 06 Jan 2016 20:03:08 +0100
+
+socket-wrapper (1.1.3-2) unstable; urgency=low
+
+  * Define PATH_MAX on Hurd.
+  * Wait more for test_srv during tests (closes: #787572).
+  * Make watch file more generic.
+  * Update debhelper level to 9 .
+  * Upload to unstable.
+  * New maintainer (closes: #770374).
+
+  [ Jakub Wilk <jwilk@debian.org> ]
+  * Add patch (reproducible-manpage.diff) to make the builds reproducible
+    (closes: #782863). Thanks to Jelmer Vernooij for the bug report and the
+    patch.
+
+ -- Laszlo Boszormenyi (GCS) <gcs@debian.org>  Thu, 04 Jun 2015 20:02:03 +0000
+
+socket-wrapper (1.1.3-1) experimental; urgency=low
+
+  * New upstream release:
+    + Add support for address sanitizer.
+    + Fix leaking of memory and fds of stale sockets.
+
+ -- Jakub Wilk <jwilk@debian.org>  Tue, 24 Feb 2015 22:31:00 +0100
+
+socket-wrapper (1.1.2-1) experimental; urgency=low
+
+  * New upstream release:
+    + Add support for fnctl(F_DUPFD).
+    + Add support for glibc 2.20.90.
+  * Rebuild the nss_wrapper manpage from source:
+    + Add asciidoc, libxml2-utils, xsltproc, docbook-xml, docbook-xsl to
+      Build-Depends.
+    + Add the manpage to extend-diff-ignore in debian/source/options.
+    + Run a2x in debian/rules.
+  * Bump standards version to 3.9.6 (no changes needed).
+
+ -- Jakub Wilk <jwilk@debian.org>  Wed, 29 Oct 2014 22:54:38 +0100
+
+socket-wrapper (1.1.1-1) experimental; urgency=low
+
+  * New upstream release:
+    + Disable incomplete address in use check in bind().
+    + Add support for IP_PKTINFO in recvmsg().
+    + Add support for IPV6_PKTINFO in recvmsg().
+    + Add support for IP_RECVDSTADDR in recvmsg() on BSD.
+    + Add support for more socket options in getsockopt().
+    + Add support for bindresvport().
+    + Fix rebinding on connect().
+    + Fix sockaddr buffer truncation in getsockname() and getpeername().
+    + Fix special cases in bind().
+  * Drop libc-so.diff, applied upstream.
+  * Refresh no-soname.diff.
+  * Bump minimum required version of libcmocka-dev to 0.4.1.
+  * Update debian/copyright.
+  * Enable parallel compilation.
+
+ -- Jakub Wilk <jwilk@debian.org>  Mon, 16 Jun 2014 10:54:45 +0200
+
+socket-wrapper (1.0.2-1) experimental; urgency=low
+
+  * New upstream release.
+  * Refresh patches.
+  * Add patch (libc-so.diff) to use the LIBC_SO macro to discover libc SONAME.
+    Thanks to Pino Toscano.
+
+ -- Jakub Wilk <jwilk@debian.org>  Sun, 01 Jun 2014 00:05:00 +0200
+
+socket-wrapper (1.0.1-1) experimental; urgency=low
+
+  * Initial release (closes: #746240).
+  * libsocket_wrapper is a preloadable library. We do not support directly
+    linking to it, so it doesn't need the SONAME. Add patch (no-soname.diff)
+    to remove it.
+  * Add Lintian override for sharedobject-in-library-directory-missing-soname.
+
+ -- Jakub Wilk <jwilk@debian.org>  Thu, 01 May 2014 19:05:38 +0200
